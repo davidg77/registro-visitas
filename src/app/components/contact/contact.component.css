@@ -1,0 +1,39 @@
+.formulario input[type="text"],
+.formulario input[type="email"],
+.formulario input[type="number"],
+.formulario textarea {
+    padding: 15px;
+    border: none;
+    width: 100%;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 30px;
+}
+
+.formulario textarea {
+    height: 150px;
+    min-height: 150px;
+    max-height: 250px;
+}
+
+.formulario .boton {
+    background: #3da5e2;
+    border: none;
+    padding: 7px 30px;
+    color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+    width: auto;
+    border-radius: 3px;
+}
+
+.formulario .boton:hover {
+    background: #1BA0EF;
+}
+
+.titulo {
+    padding: 40px 0;
+    text-align: center;
+    color: #3da5e2;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
