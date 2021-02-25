@@ -2,31 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-login-session',
+  templateUrl: './login-session.component.html',
+  styleUrls: ['./login-session.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginSessionComponent implements OnInit {
 
-  constructor(
-    private router:Router
-  ) { }
+  constructor(private router:Router
+    ) { }
 
   ngOnInit(): void {
-  }  
+  }
   userInfo = {
     email:"",
-    password:"",
-    userName:""
+    password:"",    
   } 
-  
   variableTemporal = { }
   userInfoValidator = {
     email:false,
-    password:false,
-    userName:false
+    password:false    
   }
-  registrar(){        
+  inicioSesion(){        
     //Validación email
     if(this.userInfo.email === "")  {
       console.log("Email esta vacio")
@@ -45,22 +41,14 @@ export class LoginComponent implements OnInit {
     {
       this.userInfoValidator.password = false
     }
-    //Validación usuario
-    if(this.userInfo.userName === "")  {
-      console.log("Usuario esta vacio")
-      this.userInfoValidator.userName = true
-    }
-    else
-    {
-      this.userInfoValidator.userName = false
-    }
-    if(this.userInfo.userName !== "" && this.userInfo.email !== "" && this.userInfo.password !== "" )
+    if(this.userInfo.email !== "" && this.userInfo.password !== "" )
     {
       localStorage.setItem('userInfo',JSON.stringify(this.userInfo))
-      this.router.navigate(['/'])
+
+      this.router.navigate(['/dashboard'],{state:{data:{info:this.userInfo.email}}});
 
     }
-    this.variableTemporal = localStorage.getItem('userInfo')
+    this.variableTemporal = localStorage.getItem('userInfo')    
 
     console.log("El boton esta funcionando")
     console.log('Esto es la información del usuario',this.userInfo)
@@ -68,8 +56,3 @@ export class LoginComponent implements OnInit {
   }
 
 }
-
-/*
-  ngIf
-  ngFor
-*/

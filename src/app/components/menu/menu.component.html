@@ -19,18 +19,24 @@
         </ul>
 
         <article class="login d-flex flex-row justify-content-center mt-4">
-            <section [routerLink]="['/login']" class="icon-details">
+            <section [routerLink]="['/register']" class="icon-details">
                 <a id="login1" class="nav-link">
                     <img src="assets/icons/user.png" alt="user" width="35px">
                 </a>
                 <p id="text">Register</p>
             </section>
-            <section class="icon-details">
+            <section [routerLink]="['/login']" class="icon-details">
+                <a id="login2" class="nav-link">
+                    <img src="assets/icons/inicio-session.svg" alt="login" width="35px">
+                </a>
+                <p id="text">Login</p>
+            </section>
+            <!-- <section class="icon-details">
                 <a id="login2" class="nav-link" href="#">
                     <img src="assets/icons/salir.svg" alt="logout" width="35px">
                 </a>
                 <p id="text2">Logout</p>
-            </section>
+            </section> -->
             <section class="icon-details">
                 <p class="nav-user" id="loginUser"></p>
             </section>

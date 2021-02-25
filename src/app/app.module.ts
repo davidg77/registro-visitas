@@ -12,7 +12,9 @@ import { MenuLoginComponent } from './components/menu-login/menu-login.component
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CharactersComponent } from './components/characters/characters.component';
 import { ContactComponent } from './components/contact/contact.component';
-import { FooterComponent } from './components/footer/footer.component'
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginSessionComponent } from './pages/login-session/login-session.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FooterComponent } from './components/footer/footer.component'
     MenuLoginComponent,
     CharactersComponent,
     ContactComponent,
-    FooterComponent,    
+    FooterComponent,
+    LoginSessionComponent,
+    DashboardComponent,    
   ],
   imports: [
     BrowserModule,
