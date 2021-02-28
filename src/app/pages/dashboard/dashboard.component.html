@@ -1,13 +1,11 @@
-<app-menu-login></app-menu-login>
 <section class="container">
     <article class="row mt-3">
         <div class="col">
             <form action="">
-                <h2>Bienvenido</h2>
-                <div class="form-group">
-                    <label for="nombre">Nombre Usuario</label>
-                    <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre" readonly>
-                </div>
+                <h1><span class="badge badge-secondary">Bienvenido</span></h1>
+                <button class="btn  mb-2">
+                    <a href="#" class="badge badge-light">{{user.email}}</a>
+                </button>
             </form>
         </div>
     </article>

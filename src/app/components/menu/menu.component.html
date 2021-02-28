@@ -16,30 +16,19 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">About us</a>
             </li>
+            <li class="nav-item" *ngIf="isLoggedIn">
+                <a class="nav-link" href="#" routerLink="dashboard">Dashboard</a>
+            </li>
         </ul>
 
         <article class="login d-flex flex-row justify-content-center mt-4">
-            <section [routerLink]="['/register']" class="icon-details">
-                <a id="login1" class="nav-link">
-                    <img src="assets/icons/user.png" alt="user" width="35px">
-                </a>
-                <p id="text">Register</p>
-            </section>
-            <section [routerLink]="['/login']" class="icon-details">
-                <a id="login2" class="nav-link">
-                    <img src="assets/icons/inicio-session.svg" alt="login" width="35px">
-                </a>
-                <p id="text">Login</p>
-            </section>
-            <!-- <section class="icon-details">
-                <a id="login2" class="nav-link" href="#">
-                    <img src="assets/icons/salir.svg" alt="logout" width="35px">
-                </a>
-                <p id="text2">Logout</p>
-            </section> -->
-            <section class="icon-details">
+            <section class="icon-details" *ngIf="isLoggedIn">
                 <p class="nav-user" id="loginUser"></p>
             </section>
+            <section>
+                <app-icon-detail *ngFor="let iconDetail of iconDetails" (message)="alert($event)" [source]="iconDetail.source" [label]="iconDetail.label"> </app-icon-detail>
+            </section>
+
         </article>
     </section>
 </nav>

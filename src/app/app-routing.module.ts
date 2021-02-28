@@ -1,27 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './pages/index/index.component';
-import { LoginComponent } from './pages/login/login.component'
-import { LoginSessionComponent } from './pages/login-session/login-session.component'
 import {DashboardComponent} from './pages/dashboard/dashboard.component'
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
     pathMatch:'full'
-  },
+  },  
   {
-    path:'register',
-    component:LoginComponent
-  },
-  {
-    path:'login',
-    component:LoginSessionComponent
-  },
+    path: 'login',
+    component: LoginComponent
+    /* implementación de ruteo child 
+      children:[
+      {
+        path: 'login2',
+        component: LoginComponent,
+      }
+    ] */
+    
+  },  
   {
     path:'dashboard',
-    component:DashboardComponent
+    component:DashboardComponent,
+    canActivate:[AuthGuard]
   }
 ];
 

@@ -1,30 +1,21 @@
-<app-menu-login></app-menu-login>
-<div class="container pt-5">
+<section class="container pt-5">
     <div class="card py-2 px-4">
-        <form ngNativeValidate (ngSubmit)="registrar()">
+        <form [formGroup]="form">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input name="email" [(ngModel)]="userInfo.email" [ngModelOptions]={standalone:true} type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div *ngIf="userInfoValidator.email" id="emailHelp" class="form-text text-danger">Requerido.</div>
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">UserName</label>
-                <input name="userName" [(ngModel)]="userInfo.userName" [ngModelOptions]={standalone:true} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div *ngIf="userInfoValidator.userName" id="emailHelp" class="form-text text-danger">Requerido.</div>
+                <input name="email" formControlName="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" autofocus>
 
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input name="password" [(ngModel)]="userInfo.password" [ngModelOptions]={standalone:true} type="password" class="form-control" id="exampleInputPassword1">
-                <div *ngIf="userInfoValidator.password" id="emailHelp" class="form-text text-danger">Requerido.</div>
+                <input name="password" formControlName="password" type="password" class="form-control" id="password">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+
+            <button type="submit" [disabled]="!form.valid" (click)="login()" class=" btn btn-success ">                
+                Ingresar
+            </button>
         </form>
 
     </div>
 
-</div>
+</section>
