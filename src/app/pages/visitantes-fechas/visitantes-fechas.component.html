@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <div class="row mb-3">
+        <div class="col">
+            <h2 class="text-info">Consulta Visitantes</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <form>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group text-justify row">
+                    <div class="form-group row">
+                        <label for="fecha-inicial" class="col-2 col-form-label">Fecha Inicial</label>
+                        <div class="col-10">
+                            <input class="form-control" type="date" [(ngModel)]="fechaI" id="fecha-inicial">
+                        </div>
+                        <label for="fecha-final" class="col-2 col-form-label">Fecha Final</label>
+                        <div class="col-10">
+                            <input class="form-control" type="date" [(ngModel)]="fechaF" id="fecha-final">
+                        </div>
+                        <div class="col mt-2">
+                            <button type="submit" class="btn btn-success form-control " (click)="mostrar()">
+                                <i class="fab fa-searchengin"></i>Consultar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <span class="h3">Listado de Visitantes</span>
+        <table class="table table-striped table-sm table-hover table-bordered table-responsive-lg mt-3">
+            <thead>
+                <tr>
+                    <th>Fecha Ingreso</th>
+                    <th>Identificacion</th>
+                    <th>NombreUno</th>
+                    <th>NombreDos</th>
+                    <th>ApellidoUno</th>
+                    <th>ApellidoDos</th>
+                    <th>Unidad</th>
+                    <th>Temperatura</th>
+                    <th>Contacto</th>
+                    <th>Motivo</th>
+                    <th>EPS</th>
+                    <th>ARL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let visitante of consultas">
+                    <td>{{visitante.fechaCreacion.toDate()|date:'short'}}</td>
+                    <td>{{visitante.identificacion}} </td>
+                    <td>{{visitante.nombreUno}}</td>
+                    <td>{{visitante.nombreDos}}</td>
+                    <td>{{visitante.apellidoUno}}</td>
+                    <td>{{visitante.apellidoDos}}</td>
+                    <td>{{visitante.unidad}}</td>
+                    <td>{{visitante.temperatura}}</td>
+                    <td>{{visitante.contacto}}</td>
+                    <td>{{visitante.motivo}}</td>
+                    <td>{{visitante.eps}}</td>
+                    <td>{{visitante.arl}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

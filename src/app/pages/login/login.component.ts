@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(    
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -40,11 +42,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(email, password)
     .then(response =>{
       this.authService.setUser(response.user);       
-       this.router.navigate(['/dashboard'])
-      //console.log('then response', response);
+       this.router.navigate(['/listadovisita'])      
     })
     .catch(err =>{
-      console.log('error',err);
+      this.toastr.error(err,'Error de autenticación')      
     });
     //console.log(this.form.getRawValue());// obtiene todo el objeto del formulario
     //console.log({a:this.email, b: this.password}); //obtener campo por campo cuando son pocos

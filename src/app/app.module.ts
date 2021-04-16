@@ -18,6 +18,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ListVisitantesComponent } from './pages/list-visitantes/list-visitantes.component';
+import { CreateVisitantesComponent } from './pages/create-visitantes/create-visitantes.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VisitantesFechasComponent } from './pages/visitantes-fechas/visitantes-fechas.component';
 
 @NgModule({
   declarations: [
@@ -31,16 +37,23 @@ import { environment } from 'src/environments/environment';
     FooterComponent,    
     DashboardComponent,
     IconDetailComponent,
-    LoginComponent,    
+    LoginComponent,
+    ListVisitantesComponent,
+    CreateVisitantesComponent,
+    VisitantesFechasComponent,  
+      
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),    
     AngularFireDatabaseModule,
-    AngularFireAuthModule    
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

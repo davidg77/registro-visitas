@@ -21,7 +21,6 @@ export class DashboardComponent implements OnInit {
   }  
 
   ngOnInit(): void {
-    var a = history.pushState(null,'any',"dashboard");    
   }
  
 
